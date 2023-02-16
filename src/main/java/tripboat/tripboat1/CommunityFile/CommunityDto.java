@@ -3,7 +3,7 @@ package tripboat.tripboat1.CommunityFile;
 import lombok.Getter;
 import lombok.Setter;
 import tripboat.tripboat1.CommentFile.Comment;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageDto;
+//import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageDto;
 import tripboat.tripboat1.User.SiteUser;
 
 import java.time.LocalDateTime;
@@ -30,8 +30,6 @@ public class CommunityDto {
     private LocalDateTime updatedDate;
 
     private Boolean isTemp;
-    private List<ArticleImageDto> imageList;
-
     private Integer view;
 
 
@@ -49,16 +47,6 @@ public class CommunityDto {
 
         this.view = community.getView();
 
-
-        List<ArticleImageDto> articleImageDtoList = community.getImages()
-                .stream()
-                .map(communityImage -> {
-                    ArticleImageDto articleImageDto = new ArticleImageDto(communityImage);
-                    return articleImageDto;
-                })
-                .collect(Collectors.toList());
-
-        this.imageList = articleImageDtoList;
     }
 
 }

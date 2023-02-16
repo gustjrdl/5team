@@ -28,8 +28,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/main").permitAll()
-//                .and()
-//                    .csrf().ignoringAntMatchers("/h2-console/**")
+                .and()
+                    .csrf().ignoringAntMatchers("/h2-console/**")
                 .and()
                     .headers()
                     .addHeaderWriter(new XFrameOptionsHeaderWriter(

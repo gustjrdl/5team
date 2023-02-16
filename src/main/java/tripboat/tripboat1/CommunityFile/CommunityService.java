@@ -9,10 +9,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import tripboat.tripboat1.CommentFile.Comment;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageDto;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageRepository;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageService;
-import tripboat.tripboat1.CommunityFile.CommunityImg.Image;
 import tripboat.tripboat1.User.SiteUser;
 import tripboat.tripboat1.Util.DataNotFoundException;
 
@@ -31,8 +27,6 @@ import java.util.stream.Collectors;
 public class CommunityService {
 
     private final CommunityRepository communityRepository;
-    private final ArticleImageService articleImageService;
-    private final ArticleImageRepository articleImageRepository;
 
 
     public Page<Community> getList(int page, String kw) {
@@ -51,7 +45,6 @@ public class CommunityService {
         community.setContent(content);
         community.setModifyDate(LocalDateTime.now());
         this.communityRepository.save(community);
-
     }
     public Community create(CommunityForm communityForm,SiteUser nickname) {
         Community community = Community.builder()

@@ -24,6 +24,4 @@ public class CommunityForm {
     @NotEmpty(message="지역을 선택해주세요")
     private String region;
 
-    private List<Long> imageIdList;
-
 }

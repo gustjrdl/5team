@@ -11,9 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tripboat.tripboat1.CommentFile.CommentForm;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageDto;
-import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageService;
-import tripboat.tripboat1.CommunityFile.CommunityImg.Image;
 import tripboat.tripboat1.User.UserService;
 
 import java.security.Principal;
@@ -29,7 +26,6 @@ public class CommunityController {
     @Autowired
     private final CommunityService communityService;
     private final UserService userService;
-    private final ArticleImageService articleImageService;
 
     @RequestMapping("")
     private String list(Model model, @RequestParam(value="page", defaultValue="0") int page, @RequestParam(value = "kw", defaultValue = "") String kw) {

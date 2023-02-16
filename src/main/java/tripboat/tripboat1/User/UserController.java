@@ -64,8 +64,6 @@ public class UserController {
         return "LoginForm";
     }
 
-
-
     @ResponseBody
     @RequestMapping("/logout")
     public String Logout(HttpSession session) {

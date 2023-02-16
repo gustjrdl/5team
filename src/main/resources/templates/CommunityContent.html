@@ -17,9 +17,6 @@
 
                         <h3 class="content-article-mean" th:text="${community.content}"></h3>
                         <h5 th:text="${#temporals.format(community.createDate, 'yyyy-MM-dd HH:mm')}"></h5>
-                        <div th:each="url : ${community.images}">
-                            <img th:src="${url.imgUrl}" alt="fuck" >
-                        </div>
                     </div>
                 </div>
 

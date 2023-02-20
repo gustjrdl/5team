@@ -26,12 +26,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-**/src/main/resources/acessKey.properties
 **/src/main/resources/application.properties
-**/src/main/resources/application-real.properties
-
-
-
 
 ### NetBeans ###
 /nbproject/private/

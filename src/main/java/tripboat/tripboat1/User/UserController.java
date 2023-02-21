@@ -44,7 +44,7 @@ public class UserController {
             bindingResult.reject("signupFailed", e.getMessage());
             return "SignupForm";
         }
-        return "SignupConfirm";
+        return "Index";
     }
 
     @RequestMapping("login_errors")

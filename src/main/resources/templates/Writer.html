@@ -13,7 +13,7 @@
                     <div th:if="${#fields.hasAnyErrors()}">
                         <div class="alert" role="alert" th:each="err : ${#fields.allErrors()}" th:text="${err}" />
                     </div>
-                    <input type="radio" th:value="인천" class="incheon" name="region" id="incheon" th:field="*{region}">인천</input>
+                    <input type="radio" value="인천" class="incheon" name="region" id="incheon" th:field="*{region}">인천</input>
                     <input type="radio" th:value="서울" class="seoul" name="region" id="seoul" th:field="*{region}">서울</input>
                     <input type="radio" th:value="대전" class="daejeon" name="region" id="daejeon" th:field="*{region}">대전</input>
                     <input type="radio" th:value="대구" class="daegu" name="region" id="daegu" th:field="*{region}">대구</input>

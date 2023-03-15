@@ -1,7 +1,5 @@
 package tripboat.tripboat1.CommunityFile.WriterFile;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.ObjectMetadata;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.server.ResponseStatusException;
-//import tripboat.tripboat1.Aws.AwsService;
 import tripboat.tripboat1.CommunityFile.Community;
 import tripboat.tripboat1.CommunityFile.CommunityForm;
-//import tripboat.tripboat1.CommunityFile.CommunityImg.ArticleImageService;
 import tripboat.tripboat1.CommunityFile.CommunityService;
 import tripboat.tripboat1.User.SiteUser;
 import tripboat.tripboat1.User.UserService;
@@ -42,8 +38,6 @@ public class WriterController {
     @Autowired
     private final CommunityService communityService;
     private final UserService userService;
-//    private final ArticleImageService articleImageService;
-//    private final AwsService awsService;
 
     @RequestMapping("/content")
     private String WriterSearch(Model model, @RequestParam("file") List<MultipartFile> file, @RequestParam(value="page", defaultValue="1") int page, @RequestParam(value = "kw", defaultValue = "") String kw) {
@@ -99,6 +93,7 @@ public class WriterController {
     @GetMapping("/modify/{id}")
     public String communityModify(CommunityForm communityForm, @PathVariable("id") Integer id, Principal principal) {
         Community community = this.communityService.getCommunity(id);
+
         if(!community.getAuthor().getUsername().equals(principal.getName())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
         }

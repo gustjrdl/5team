@@ -62,30 +62,6 @@ public class WriterController {
         Community article = communityService.create(communityForm,userService.getUser(principal.getName()));
         if (bindingResult.hasErrors()) return "Writer";
 
-//        if(!files.isEmpty()) {
-//            files.stream()
-//                    .forEach(file -> {
-//                        try {
-//                            int checkNum = 1;
-//
-//                            if (file.isEmpty()) checkNum = 0;
-//
-//                            if (checkNum == 1) {
-////                                String imgUrl = awsService.sendFileToS3Bucket(file);
-////                                model.addAttribute("fileUrl", imgUrl);
-////                                articleImageService.articleImageDto(imgUrl, article);
-//                            }
-//                        } catch (IOException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                    });
-//        }
-//        org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@30300607
-//        org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@3faafd59
-
-//        System.out.println("files"+files);
-//        System.out.println("files2"+files.isEmpty());
-
         return "redirect:/community";
     }
 

@@ -28,7 +28,6 @@ public class CommunityService {
 
     private final CommunityRepository communityRepository;
 
-
     public Page<Community> getList(int page, String kw) {
         List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("createDate"));

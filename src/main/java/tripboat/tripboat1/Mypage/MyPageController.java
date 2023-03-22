@@ -1,4 +1,4 @@
-package tripboat.tripboat1.User;
+package tripboat.tripboat1.Mypage;
 
 
 import lombok.RequiredArgsConstructor;
@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tripboat.tripboat1.CommunityFile.Community;
 import tripboat.tripboat1.CommunityFile.CommunityService;
+import tripboat.tripboat1.User.UserService;
 
 import java.security.Principal;
 import java.util.LinkedList;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/mypage")
 public class MyPageController {
 
     private final UserService userService;
@@ -24,13 +26,14 @@ public class MyPageController {
 
 
 
-    @RequestMapping("/mypage")
+    @RequestMapping("")
     private String mypageform(Model model, Principal principal, @RequestParam(value="page", defaultValue="0") int page, @RequestParam(value = "kw", defaultValue = "") String kw) {
 
         Page<Community> community = this.communityService.getList(page,kw);
 
+        model.addAttribute("kw", kw);
         model.addAttribute("name",userService.getUser(principal.getName()));
-        model.addAttribute("community", community);
+        model.addAttribute("paging", community);
 
         return "MyPage";
     }

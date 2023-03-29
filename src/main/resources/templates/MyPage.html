@@ -20,8 +20,8 @@
             <a th:href="@{|/community/detail/${Community.id}|}" th:each="Community : ${paging}">
                 <div class="my-community-frame" th:if="${name.nickname} == ${Community.author.nickname}">
                     <div th:text="${Community.region}"></div>
-                    <div  th:text="${Community.subject}"></div>
-                    <div  th:text="${Community.content}"></div>
+                    <div th:text="${Community.subject}"></div>
+                    <div th:text="${Community.content}"></div>
                 </div>
             </a>
         </div>
